@@ -1,0 +1,55 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <title>Калькулятор</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=windows-1251" />
+        <script type="text/javascript">
+
+       /*
+        * Функция подсчета стоимости услуг на создания дизайна сайта
+        */
+        function calc() {
+            var type_design = document.getElementById("type_b");
+	    var type_design = document.getElementById("type_sh"); 
+            var is_html = document.getElementById("p");
+	    var count = document.getElementById("n");
+            var count = document.getElementById("v");
+            var result = document.getElementById("result"); 
+
+            var price = 0;
+            price += parseInt(type_design.options[type_b.selectedIndex].value);
+            price += parseInt(type_design.options[type_sh.selectedIndex].value);
+            price += (p.checked == true) ? parseInt(p.value) : 0;
+            price = parseInt(count.value) * price;
+
+            result.innerHTML = price;
+        }
+
+        </script>
+    </head>
+    <body>
+        <b>Выбирете тип букв:</b><br/>
+        <select onchange="calc()" id="type_b">
+            <option value="0">Выбрать</option>
+            <option value="5000">Объемные буквы без подсветки</option>
+            <option value="7000">Объемные буквы со светящийся лицевой стороной</option>
+            <option value="10000">Объемные буквы с контажурным свечением</option>
+        </select><br/>
+	<b>Выбирете шрифт:</b><br/>
+            <select onchange="calc()" id="type_sh">
+            <option value="0">Выбрать</option>
+            <option value="2000">Arial</option>
+            <option value="3000">Tahoma</option>
+            <option value="4000">Open-sans</option>
+	    <option value="5000">Verdana</option>
+	    <option value="6000">Impact</option>
+	    <option value="7000">Calibri</option>
+        </select><br/>
+        <input type="checkbox" onchange="calc()" value="3000" id="p" /> <label for="is_html">Нужна подложка?</label>
+        <br/>
+        Введите надпись: <input type="text" id="n" function () {
+        console.log($(n).val(1).length);} />
+        Введите высоту букв в см: <input type="text" id="v" value="1" onchange="calc()" />
+        <div>Стоимость дизайна сайта: <span id="result">0</span> руб.</div>
+    </body>
+</html>

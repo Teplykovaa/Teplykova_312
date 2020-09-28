@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<style>
+#makeMeDraggable { float: left; width: 300px; height: 300px; background: red; }
+#makeMeDraggable2 { float: left; width: 100px; height: 300px; background: blue; }
+#makeMeDraggable3 { float: left; width: 200px; height: 200px; background: pink; }
+#makeMeDraggable4 { float: left; width: 400px; height: 200px; background: green; }
+#makeMeDroppable { float: right; width: 1000px; height: 700px; border: 1px solid #999; }
+</style>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.0/jquery.min.js"></script>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.9/jquery-ui.min.js"></script>
+<script type="text/javascript">
+$( init );
+function init() {
+  $('#makeMeDraggable').draggable();
+  $('#makeMeDraggable2').draggable();
+  $('#makeMeDraggable3').draggable();
+  $('#makeMeDraggable4').draggable();
+  $('#makeMeDroppable').droppable( {
+    drop: handleDropEvent
+  } );
+}
+function handleDropEvent( event, ui ) {
+  var draggable = ui.draggable;
+  alert( 'Квадрат с ID "' + draggable.attr('id') + '" был доставлен к месту назначения!' );
+}
+</script>
+</head>
+<body>
+<div id="content" style="height: 400px;">
+  <div id="makeMeDraggable"> </div>
+  <div id="makeMeDraggable2"> </div>
+  <div id="makeMeDraggable3"> </div>
+  <div id="makeMeDraggable4"> </div>
+  <div id="makeMeDroppable"> </div>
+</div>
+</body>
+</html>
